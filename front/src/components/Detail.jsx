@@ -26,14 +26,31 @@ padding: 3rem;
 const Imagen = styled.img`
 border-radius: 50%;
 `
+const Favorite = styled.button`
+background-color: green;
+color: white;
+font-size: larger;
+border: none;
+border-radius: 5px;
+margin-bottom: 1rem;
+padding: 5px;
+width: 12rem;
+
+
+&:hover{
+  cursor: pointer;
+  opacity: 0.7;
+`
 
 const Detail = () => {
  const { id } = useParams();
 const [character, setCharacter] = useState({});
+const [isFavorite, setIsFavorite] = useState(false)
+
 
 
 useEffect(() => {
-   axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+   axios(`http://localhost:3001/character/${id}`).then(
       ({ data }) => {
       if (data.name) {
          setCharacter(data);
@@ -43,10 +60,35 @@ useEffect(() => {
    });
    return setCharacter({});
 }, [id]);
+
+
  
+const addFav = () => {
+   character && character.origin && fetch('http://localhost:3001/favs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+         name: character.name,
+         origin: character.origin.name, 
+         species: character.species, 
+         status: character.status, 
+         gender: character.gender, 
+         image: character.image
+       }),
+   })
+   .then(()=>{
+      setIsFavorite(true)
+      
+   })
+   .catch(()=>{
+      console.log('error');
+   })
 
+ 
+}
 
- console.log(character.origin)
 
   return (
    <Contenedor>
@@ -58,9 +100,10 @@ useEffect(() => {
       <h2>SPECIES: {character.species}</h2>
       <h2>GENDER: {character.gender}</h2>
      {character.origin && <h2>ORIGIN: {character.origin.name}</h2>} 
-    
+     <Favorite onClick={addFav}> {isFavorite ? 'Added to favorites' : '+ Add to favorites'}</Favorite>
 </Details>
       )}
+      
   </Contenedor>
   )
 }

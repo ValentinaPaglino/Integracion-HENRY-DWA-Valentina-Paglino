@@ -18,6 +18,9 @@ const CardContainer = styled.div`
     
    }
 `
+
+
+
 const BotonCerrar = styled.button`
 border: none;
 background-color: red;
@@ -53,6 +56,9 @@ padding: 0 1rem;
 
 const Card = (props) => {
   const {id, onClose, name, status, species, gender, origin, image} = props;
+
+ 
+
   return (
 
     <CardContainer>
@@ -62,7 +68,7 @@ const Card = (props) => {
        <Link to={`/detail/${id}`} >
          <Nombre className="card-name">{name}</Nombre>
       </Link>
-
+      
        
        <Detalles> 
           <h2>status: {status}</h2>
@@ -70,7 +76,7 @@ const Card = (props) => {
           <h2>gender: {gender}</h2>
           <h2>origin: {origin}</h2>
        </Detalles>   
-          
+        
     </CardContainer>
   );
 };

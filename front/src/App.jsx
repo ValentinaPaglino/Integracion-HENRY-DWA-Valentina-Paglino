@@ -7,7 +7,9 @@ import { Form, Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import About from "./views/About";
 import Detail from "./components/Detail";
-import Formulario from "./components/Form";
+import Formulario from "./components/Login";
+
+
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
 const [characters, setCharacters] = useState([])
 
 function onSearch(id) {
-  axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+  axios(`http://localhost:3001/character/${id}`).then(({ data }) => {
      if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
      } else {
@@ -23,6 +25,8 @@ function onSearch(id) {
      }
   });
 }
+
+
 
 const onClose = (id) =>{
   setCharacters(
@@ -37,9 +41,11 @@ characters.filter((char)=>{
       <Nav onSearch = {onSearch}/>
       <Routes>
         <Route path='/' element={<Formulario/>}/>
+        {/* <Route path='/SignUp' element={<FormularioSignUp/>}/> */}
         <Route path="/home" element={ <Cards characters={characters} onClose={onClose}/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/detail/:id" element={<Detail/>}/>
+      
       </Routes>
       
 

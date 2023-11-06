@@ -1,0 +1,6 @@
+Quería hacer unas pequeñas aclaraciones:
+
+-No pude agregar la funcionalidad de eliminar favoritos desde el front end. Sí se pueden agregar haciendo click en 'Add to Favorites' en la sección de detail.
+
+-Hay ciertas cosas a mejorar, como por ejemplo, que el cliente reciba una mejor respuesta al ingresar datos incorrectos en el login, pero no llegué a perfeccionar todo.
+Aun así, la funcionalidad de validar el login y crear usuario están.

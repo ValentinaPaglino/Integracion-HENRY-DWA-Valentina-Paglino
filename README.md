@@ -22,3 +22,5 @@ El usuario ingresa un ID de un personaje en la Search Bar. La página le pide in
 ![postgre](https://github.com/ValentinaPaglino/Integracion-HENRY-DWA-Valentina-Paglino/assets/87662280/4e0af636-446c-4936-a61e-15509fda7d5f)
 
 ## Demostración del proyecto
+https://github.com/ValentinaPaglino/Integracion-HENRY-DWA-Valentina-Paglino/assets/87662280/2c8785cf-4e4c-480a-abba-f154cd8ad5e4
+
